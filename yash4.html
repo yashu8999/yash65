@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Yash Deviprasad Upadhyay - Portfolio, Education, Goals, Achievements" />
+<meta name="author" content="Yash Deviprasad Upadhyay" />
+<meta property="og:title" content="Yash Portfolio" />
+<meta property="og:image" content="your-preview-image.png" />
+<meta property="og:description" content="Personal introduction portfolio site." />
+<meta name="theme-color" content="#ffffff" />
+<link rel="icon" href="favicon.ico" />
+<title>Yash Deviprasad Upadhyay - Portfolio</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#0074D9",
+        secondary: "#003366",
+        light: "#f0f8ff",
+        dark: "#1a202c",
+        accent: "#FF6B6B",
+      },
+      fontFamily: {
+        heading: ["Roboto Slab", "serif"],
+        body: ["Poppins", "sans-serif"],
+      },
+      animation: {
+        'fade-in': 'fadeIn 1s ease-in-out',
+        'slide-up': 'slideUp 0.5s ease-out',
+        'pulse-slow': 'pulse 3s infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        }
+      }
+    },
+  },
+};
+</script>
+
+<style>
+/* Custom CSS for additional styling */
+.section-card {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+.section-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 116, 217, 0.1);
+}
+.social-icon {
+  transition: all 0.3s ease;
+}
+.social-icon:hover {
+  transform: scale(1.2);
+  color: #0074D9;
+}
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+.testimonial-card {
+  background: linear-gradient(145deg, #ffffff, #f0f8ff);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.shop-btn {
+  background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+  transition: all 0.3s ease;
+}
+.shop-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+.product-card {
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+/* Cookie Consent Styles */
+.cookie-consent {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none;
+  animation: slideUp 0.5s ease-out;
+}
+.cookie-consent.show {
+  display: block;
+}
+.cookie-consent p {
+  margin-bottom: 15px;
+  color: #333;
+}
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.cookie-btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cookie-btn-decline {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+.cookie-btn-decline:hover {
+  background: #e0e0e0;
+}
+.cookie-btn-accept {
+  background: #0074D9;
+  color: white;
+  border: 1px solid #0074D9;
+}
+.cookie-btn-accept:hover {
+  background: #0063b8;
+}
+.cookie-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+.cookie-overlay.show {
+  display: block;
+}
+</style>
+</head>
+
+<body class="bg-light text-blue-950 font-body">
+<!-- Cookie Consent Overlay -->
+<div id="cookie-overlay" class="cookie-overlay"></div>
+
+<!-- Cookie Consent Popup -->
+<div id="cookie-consent" class="cookie-consent">
+  <h3 class="text-lg font-semibold mb-2">🍪 We Use Cookies</h3>
+  <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By clicking "Accept All Cookies", you consent to our use of cookies. You can manage your preferences by clicking "Decline".</p>
+  <div class="cookie-buttons">
+    <button id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>
+    <button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept All Cookies</button>
+  </div>
+</div>
+
+<header class="bg-gradient-to-r from-primary to-secondary text-white py-4 px-6 flex flex-wrap justify-between items-center sticky top-0 z-50 shadow-md">
+  <h1 class="text-xl md:text-3xl font-heading font-bold animate__animated animate__fadeIn">
+    Yash <span class="text-blue-200">Portfolio</span>
+  </h1>
+  <button
+    class="md:hidden text-white text-2xl focus:outline-none"
+    onclick="toggleMenu()"
+    aria-label="Toggle navigation menu"
+  >
+    <i class="fas fa-bars"></i>
+  </button>
+  <nav
+    id="mobile-nav"
+    class="w-full md:w-auto md:flex gap-6 text-white font-medium hidden md:block mt-4 md:mt-0 animate__animated animate__fadeIn"
+  >
+    <ul class="flex flex-col md:flex-row gap-4 md:gap-6 items-center">
+      <li><a href="#about" class="nav-link hover:underline">About</a></li>
+      <li><a href="#achievement" class="nav-link hover:underline">Achievements</a></li>
+      <li><a href="#testimonials" class="nav-link hover:underline">Testimonials</a></li>
+      <li><a href="#goal" class="nav-link hover:underline">Goal</a></li>
+      <li><a href="shop.html" class="nav-link hover:underline">Shop</a></li>
+      <li><a href="#contact" class="nav-link hover:underline">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="px-4 md:px-16 space-y-10 py-10 max-w-6xl mx-auto">
+  <!-- About Section -->
+  <section
+    id="about"
+    class="bg-white rounded-xl shadow-lg p-6 font-body section-card animate__animated animate__fadeIn"
+  >
+    <h2
+      class="text-2xl md:text-3xl font-heading font-semibold text-primary border-b-2 border-primary mb-6 pb-2 flex items-center gap-3"
+    >
+      <i class="fas fa-user text-primary"></i> About Me
+    </h2>
+    <div class="flex flex-col lg:flex-row gap-8 items-center">
+      <div class="w-full lg:w-1/3 flex justify-center">
+        <div class="relative">
+          <img
+            src="https://i.postimg.cc/rydvLG9V/Whats-App-Image-2025-05-22-at-2-11-57-PM.jpg"
+            alt="Yash Deviprasad Upadhyay"
+            class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-lg"
+          />
+          <div class="absolute -bottom-3 -right-3 bg-primary text-white rounded-full p-3 shadow-lg">
+            <i class="fas fa-code text-xl"></i>
+          </div>
+        </div>
+      </div>
+      <div class="w-full lg:w-2/3">
+        <p class="text-lg mb-6 animate__animated animate__fadeIn animate__delay-1s">
+          I am <span class="font-bold text-primary">Yash Deviprasad Upadhyay</span>, a passionate Electronics and
+          Computer Science Engineering student at Mumbai University. I am
+          driven by curiosity and a desire to innovate through software
+          development and technology.
+        </p>
+
+        <div class="mb-6 animate__animated animate__fadeIn animate__delay-1s">
+          <h3 class="text-xl font-heading font-semibold text-primary mb-3">
+            <i class="fas fa-graduation-cap mr-2"></i>Education
+          </h3>
+          <div class="space-y-2">
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-2 rounded-full mr-3">
+                <i class="fas fa-university text-primary"></i>
+              </div>
+              <div>
+                <p class="font-semibold">Bachelor of Engineering in Electronics and Computer Science</p>
+                <p class="text-gray-600">Mumbai University</p>
+                <p class="text-sm text-gray-500">2021 - Present</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+          <div class="aspect-video rounded-xl overflow-hidden shadow-2xl border border-accent/30 bg-primary/30 backdrop-blur-sm">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/GMEMKMAb5w4"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section
+    id="achievement"
+    class="bg-white rounded-xl shadow-lg p-6 font-body section-card animate__animated animate__fadeIn"
+  >
+    <h2
+      class="text-2xl md:text-3xl font-heading font-semibold text-primary border-b-2 border-primary mb-6 pb-2 flex items-center gap-3"
+    >
+      <i class="fas fa-trophy text-primary"></i> Achievements
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="animate__animated animate__slide-up">
+        <h3 class="text-xl font-heading font-medium text-primary mb-4">
+          <i class="fas fa-medal mr-2"></i>Academic & Professional
+        </h3>
+        <ul class="space-y-4" id="achievements">
+          <!-- Dynamic achievements loaded here -->
+        </ul>
+      </div>
+
+      <div class="animate__animated animate__slide-up animate__delay-1s">
+        <h3 class="text-xl font-heading font-medium text-primary mb-4">
+          <i class="fas fa-star mr-2"></i>Other Accomplishments
+        </h3>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+            <div class="bg-primary/10 p-2 rounded-full">
+              <i class="fas fa-medal text-primary"></i>
+            </div>
+            <div>
+              <p class="font-medium">3rd Runner Up in Inter College Kabbadi Competition</p>
+              <p class="text-sm text-gray-600">Demonstrated teamwork and sportsmanship</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+            <div class="bg-primary/10 p-2 rounded-full">
+              <i class="fas fa-users text-primary"></i>
+            </div>
+            <div>
+              <p class="font-medium">Group Project: Land Rover with Soil Moisture Sensor</p>
+              <p class="text-sm text-gray-600">Innovative agricultural technology solution</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3 p-3 bg-blue-50 rounded-lg">
+            <div class="bg-primary/10 p-2 rounded-full">
+              <i class="fas fa-certificate text-primary"></i>
+            </div>
+            <div>
+              <p class="font-medium">Certifications:</p>
+              <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700 mt-1">
+                <li>Anudip and Jetking</li>
+                <li>Data Network, Unix Sequential Digital Circuits</li>
+                <li>Basics of C++ Programming</li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="bg-white rounded-xl shadow-lg p-6 font-body section-card animate__animated animate__fadeIn">
+    <h2 class="text-2xl md:text-3xl font-heading font-semibold text-primary border-b-2 border-primary mb-6 pb-2 flex items-center gap-3">
+      <i class="fas fa-cogs text-primary"></i> Skills
+    </h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="skill-card p-4 bg-blue-50 rounded-lg text-center transition-all hover:bg-primary hover:text-white">
+        <i class="fas fa-code text-3xl mb-2 text-primary"></i>
+        <h3 class="font-semibold">Programming</h3>
+        <p class="text-sm">C++, Python, JavaScript</p>
+      </div>
+      <div class="skill-card p-4 bg-blue-50 rounded-lg text-center transition-all hover:bg-primary hover:text-white">
+        <i class="fas fa-laptop-code text-3xl mb-2 text-primary"></i>
+        <h3 class="font-semibold">Web Dev</h3>
+        <p class="text-sm">HTML, CSS, JavaScript</p>
+      </div>
+      <div class="skill-card p-4 bg-blue-50 rounded-lg text-center transition-all hover:bg-primary hover:text-white">
+        <i class="fas fa-microchip text-3xl mb-2 text-primary"></i>
+        <h3 class="font-semibold">Electronics</h3>
+        <p class="text-sm">Circuit Design, Arduino</p>
+      </div>
+      <div class="skill-card p-4 bg-blue-50 rounded-lg text-center transition-all hover:bg-primary hover:text-white">
+        <i class="fas fa-robot text-3xl mb-2 text-primary"></i>
+        <h3 class="font-semibold">AI/ML</h3>
+        <p class="text-sm">Basic Concepts</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="bg-white rounded-xl shadow-lg p-6 font-body section-card animate__animated animate__fadeIn">
+    <h2 class="text-2xl md:text-3xl font-heading font-semibold text-primary border-b-2 border-primary mb-6 pb-2 flex items-center gap-3">
+      <i class="fas fa-quote-left text-primary"></i> Testimonials
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card p-6 rounded-xl">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h3 class="font-semibold">John Doe</h3>
+            <p class="text-sm text-gray-600">Professor at Mumbai University</p>
+          </div>
+        </div>
+        <div class="flex mb-2 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="text-gray-700">
+          "Yash is one of the most dedicated students I've had the pleasure to teach. His problem-solving skills and innovative approach to electronics projects are truly remarkable."
+        </p>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card p-6 rounded-xl">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jane Smith" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h3 class="font-semibold">Jane Smith</h3>
+            <p class="text-sm text-gray-600">Hackathon Judge</p>
+          </div>
+        </div>
+        <div class="flex mb-2 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+        </div>
+        <p class="text-gray-700">
+          "Yash's project at the inter-college hackathon demonstrated exceptional technical skills and creativity. His ability to work in a team while leading critical aspects was impressive."
+        </p>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card p-6 rounded-xl">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Robert Johnson" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h3 class="font-semibold">Robert Johnson</h3>
+            <p class="text-sm text-gray-600">Internship Supervisor</p>
+          </div>
+        </div>
+        <div class="flex mb-2 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="text-gray-700">
+          "During his internship, Yash quickly adapted to our development environment and contributed significantly to our IoT project. His debugging skills saved us countless hours."
+        </p>
+      </div>
+
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card p-6 rounded-xl">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Williams" class="w-12 h-12 rounded-full object-cover mr-4">
+          <div>
+            <h3 class="font-semibold">Sarah Williams</h3>
+            <p class="text-sm text-gray-600">Team Lead, Tech Company</p>
+          </div>
+        </div>
+        <div class="flex mb-2 text-yellow-400">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <p class="text-gray-700">
+          "Yash's ability to bridge electronics and software development makes him a unique talent. His contributions to our open-source project were both technically sound and innovative."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goal Section -->
+  <section
+    id="goal"
+    class="bg-white rounded-xl shadow-lg p-6 font-body section-card animate__animated animate__fadeIn"
+  >
+    <h2
+      class="text-2xl md:text-3xl font-heading font-semibold text-primary border-b-2 border-primary mb-6 pb-2 flex items-center gap-3"
+    >
+      <i class="fas fa-bullseye text-primary"></i> My Goals
+    </h2>
+    <div class="flex flex-col md:flex-row gap-6 items-center">
+      <div class="w-full md:w-1/3 flex justify-center">
+        <div class="relative">
+          <div class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-r from-primary to-blue-300 flex items-center justify-center shadow-xl animate-pulse-slow">
+            <i class="fas fa-rocket text-white text-5xl"></i>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-2/3">
+        <div class="space-y-4">
+          <div class="goal-item p-4 bg-blue-50 rounded-lg border-l-4 border-primary">
+            <h3 class="font-semibold text-lg flex items-center gap-2">
+              <i class="fas fa-laptop-code text-primary"></i> Short-term Goal
+            </h3>
+            <p class="mt-2">
+              To master full-stack web development and build impactful projects that showcase my skills.
+            </p>
+          </div>
+
+          <div class="goal-item p-4 bg-blue-50 rounded-lg border-l-4 border-primary">
+            <h3 class="font-semibold text-lg flex items-center gap-2">
+              <i class="fas fa-brain text-primary"></i> Mid-term Goal
+            </h3>
+            <p class="mt-2">
+              Specialize in AI and machine learning, creating innovative solutions that transform industries.
+            </p>
+          </div>
+
+          <div class="goal-item p-4 bg-blue-50 rounded-lg border-l-4 border-primary">
+            <h3 class="font-semibold text-lg flex items-center gap-2">
+              <i class="fas fa-briefcase text-primary"></i> Long-term Goal
+            </h3>
+            <p class="mt-2">
+              Become a leading software engineer recognized by top MNCs for my technical expertise and innovative thinking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section
+    id="contact"
+    class="bg-white rounded-xl shadow-lg p-6 font-body section-card animate__animated animate__fadeIn"
+  >
+    <h2
+      class="text-2xl md:text-3xl font-heading font-semibold text-primary border-b-2 border-primary mb-6 pb-2 flex items-center gap-3"
+    >
+      <i class="fas fa-envelope text-primary"></i> Contact Me
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-heading font-medium text-primary mb-4">
+          <i class="fas fa-paper-plane mr-2"></i> Get In Touch
+        </h3>
+        <ul class="space-y-4 mb-6">
+          <li class="flex items-start gap-4">
+            <div class="bg-primary/10 p-3 rounded-full">
+              <i class="fas fa-phone text-primary"></i>
+            </div>
+            <div>
+              <strong>Phone:</strong>
+              <a
+                href="tel:+918999662955"
+                class="text-primary underline block"
+              >+91-8999662955</a
+              >
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="bg-primary/10 p-3 rounded-full">
+              <i class="fab fa-whatsapp text-primary"></i>
+            </div>
+            <div>
+              <strong>WhatsApp:</strong>
+              <a
+                href="https://wa.me/918999662955"
+                class="text-primary underline block"
+                target="_blank"
+              >Chat on WhatsApp</a
+              >
+            </div>
+          </li>
+          <li class="flex items-start gap-4">
+            <div class="bg-primary/10 p-3 rounded-full">
+              <i class="fas fa-envelope text-primary"></i>
+            </div>
+            <div>
+              <strong>Email:</strong>
+              <a
+                href="mailto:y89996629@gmail.com"
+                class="text-primary underline block"
+              >y89996629@gmail.com</a
+              >
+            </div>
+          </li>
+        </ul>
+
+        <div class="mb-6">
+          <h3 class="text-xl font-heading font-medium text-primary mb-4">
+            <i class="fas fa-share-alt mr-2"></i> Social Media
+          </h3>
+          <div class="flex gap-4">
+            <a
+              href="https://instagram.com/yash07dx"
+              class="social-icon text-2xl text-gray-700 hover:text-primary"
+              target="_blank"
+              aria-label="Instagram"
+            ><i class="fab fa-instagram"></i></a>
+            <a
+              href="https://www.linkedin.com/in/yash-upadhyay-956336321"
+              class="social-icon text-2xl text-gray-700 hover:text-primary"
+              target="_blank"
+              aria-label="LinkedIn"
+            ><i class="fab fa-linkedin"></i></a>
+            <a
+              href="https://github.com/yashu8999"
+              class="social-icon text-2xl text-gray-700 hover:text-primary"
+              target="_blank"
+              aria-label="GitHub"
+            ><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-heading font-medium text-primary mb-2 flex items-center gap-2">
+            <i class="fas fa-map-marker-alt"></i> My Location
+          </h3>
+          <iframe
+            class="w-full h-64 rounded-md shadow"
+            src="https://maps.google.com/maps?q=Palghar,%20Maharashtra&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen
+            loading="lazy"
+            aria-label="Google Map showing location of Palghar, Maharashtra"
+          ></iframe>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-heading font-medium text-primary mb-4">
+          <i class="fas fa-comment-dots mr-2"></i> Send a Message
+        </h3>
+        <form
+          action="https://formspree.io/f/yourformid"
+          method="POST"
+          class="space-y-4"
+        >
+          <div>
+            <label for="name" class="block text-gray-700 mb-1">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+              class="w-full border border-gray-300 rounded p-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-gray-700 mb-1">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              class="w-full border border-gray-300 rounded p-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-gray-700 mb-1">Your Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Enter your message"
+              required
+              rows="5"
+              class="w-full border border-gray-300 rounded p-3 focus:outline-none focus:ring-2 focus:ring-primary"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-lg hover:opacity-90 transition-all w-full"
+          >
+            <i class="fas fa-paper-plane mr-2"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-gradient-to-r from-primary to-secondary text-white py-8 px-6">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+    <div>
+      <h3 class="text-xl font-heading font-bold mb-4">Yash Portfolio</h3>
+      <p class="text-blue-100">
+        Electronics & Computer Science Engineer passionate about technology and innovation.
+      </p>
+    </div>
+    <div>
+      <h3 class="text-xl font-heading font-bold mb-4">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#achievement" class="hover:underline">Achievements</a></li>
+        <li><a href="#testimonials" class="hover:underline">Testimonials</a></li>
+        <li><a href="#goal" class="hover:underline">Goals</a></li>
+        <li><a href="#shop" class="hover:underline">Shop</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-xl font-heading font-bold mb-4">Connect</h3>
+      <div class="flex gap-4">
+        <a href="https://instagram.com/yash07dx" class="text-2xl hover:text-blue-200" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/yash-upadhyay-956336321" class="text-2xl hover:text-blue-200" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/yashu8999" class="text-2xl hover:text-blue-200" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-blue-300 mt-8 pt-6 text-center text-blue-100">
+    <p>&copy; 2023 Yash Deviprasad Upadhyay. All rights reserved.</p>
+  </div>
+</footer>
+
+<button
+  onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+  class="fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-blue-800 transition-all"
+  aria-label="Scroll to top"
+  id="back-to-top"
+>
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+// Toggle mobile menu
+function toggleMenu() {
+  const nav = document.getElementById("mobile-nav");
+  nav.classList.toggle("hidden");
+  nav.classList.toggle("animate__fadeIn");
+}
+
+// Back to top button visibility
+window.addEventListener('scroll', function() {
+  const backToTopButton = document.getElementById('back-to-top');
+  if (window.pageYOffset > 300) {
+    backToTopButton.classList.remove('opacity-0', 'invisible');
+    backToTopButton.classList.add('opacity-100', 'visible');
+  } else {
+    backToTopButton.classList.remove('opacity-100', 'visible');
+    backToTopButton.classList.add('opacity-0', 'invisible');
+  }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href');
+    if (targetId === '#') return;
+
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+
+      // Close mobile menu if open
+      const mobileNav = document.getElementById('mobile-nav');
+      if (!mobileNav.classList.contains('hidden')) {
+        toggleMenu();
+      }
+    }
+  });
+});
+
+// Load achievements dynamically
+fetch("data.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const list = document.getElementById("achievements");
+    data.forEach((item) => {
+      const li = document.createElement("li");
+      li.classList.add("flex", "items-start", "gap-3", "p-3", "bg-blue-50", "rounded-lg");
+      li.innerHTML = `
+        <div class="bg-primary/10 p-2 rounded-full">
+          <i class="fas fa-check-circle text-primary"></i>
+        </div>
+        <div>
+          <p class="font-medium">${item.title}</p>
+          <p class="text-sm text-gray-600">${item.year}</p>
+        </div>
+      `;
+      list.appendChild(li);
+    });
+  })
+  .catch(error => {
+    console.error("Error loading achievements:", error);
+    // Fallback content if JSON fails to load
+    const list = document.getElementById("achievements");
+    const fallbackAchievements = [
+      { title: "Academic Excellence Award", year: "2022" },
+      { title: "Hackathon Participant", year: "2021" },
+      { title: "Technical Paper Presentation", year: "2020" }
+    ];
+
+    fallbackAchievements.forEach(item => {
+      const li = document.createElement("li");
+      li.classList.add("flex", "items-start", "gap-3", "p-3", "bg-blue-50", "rounded-lg");
+      li.innerHTML = `
+        <div class="bg-primary/10 p-2 rounded-full">
+          <i class="fas fa-check-circle text-primary"></i>
+        </div>
+        <div>
+          <p class="font-medium">${item.title}</p>
+          <p class="text-sm text-gray-600">${item.year}</p>
+        </div>
+      `;
+      list.appendChild(li);
+    });
+  });
+
+// Add animation classes as elements come into view
+const observerOptions = {
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate__animated', 'animate__fadeIn');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.section-card').forEach(section => {
+  observer.observe(section);
+});
+
+// Shop button functionality
+document.querySelectorAll('.shop-btn').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    alert('Item added to cart!');
+  });
+});
+
+// Cookie Consent Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const cookieConsent = document.getElementById('cookie-consent');
+  const cookieOverlay = document.getElementById('cookie-overlay');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  
+  // Check if cookie consent was already given
+  if (!localStorage.getItem('cookieConsent')) {
+    // Show cookie consent after a small delay
+    setTimeout(() => {
+      cookieConsent.classList.add('show');
+      cookieOverlay.classList.add('show');
+    }, 1000);
+  }
+  
+  // Accept cookies
+  acceptBtn.addEventListener('click', function() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    cookieConsent.classList.remove('show');
+    cookieOverlay.classList.remove('show');
+    // Here you would typically load your analytics/tracking scripts
+    console.log('Cookies accepted');
+  });
+  
+  // Decline cookies
+  declineBtn.addEventListener('click', function() {
+    localStorage.setItem('cookieConsent', 'declined');
+    cookieConsent.classList.remove('show');
+    cookieOverlay.classList.remove('show');
+    console.log('Cookies declined');
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yash Deviprasad Upadhyay - Portfolio</title>
+<style>
+  /* Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab&family=Open+Sans&display=swap');
+
+  /* Light Theme Colors */
+  :root {
+    --cream: #f5f1e9;
+    --dark-brown: #3b2f2f;
+    --muted-gold: #bfa46f;
+    --navy: #1a1f71;
+    --accent-red: #c63d0f;
+
+    /* Dark Theme (default) */
+    --bg-color: #1e1e1e;
+    --text-color: var(--cream);
+    --header-bg: var(--dark-brown);
+    --nav-link-hover-bg: var(--muted-gold);
+    --nav-link-hover-color: var(--dark-brown);
+    --section-bg: transparent;
+    --form-bg: #2a2525;
+    --form-shadow: inset 0 0 10px #4a3c3c;
+    --box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+    --video-shadow: var(--accent-red);
+    --photo-shadow: var(--muted-gold);
+    --button-bg: var(--accent-red);
+    --button-hover-bg: #c02f4f;
+  }
+
+  /* Light Theme Overrides */
+  body.light-theme {
+    --bg-color: #fdfaf4;
+    --text-color: #3b2f2f;
+    --header-bg: #bfa46f;
+    --nav-link-hover-bg: #3b2f2f;
+    --nav-link-hover-color: var(--cream);
+    --section-bg: #fff8e1;
+    --form-bg: #f3ead7;
+    --form-shadow: inset 0 0 10px #d7c9a9;
+    --box-shadow: 0 2px 10px rgba(191, 164, 111, 0.5);
+    --video-shadow: #c63d0f;
+    --photo-shadow: #bfa46f;
+    --button-bg: #3b2f2f;
+    --button-hover-bg: #1a1a1a;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--header-bg);
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  nav.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--muted-gold);
+    transition: color 0.4s ease;
+  }
+
+  ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  ul.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 0.7rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ul.nav-links li a:hover,
+  ul.nav-links li a.active {
+    background-color: var(--nav-link-hover-bg);
+    color: var(--nav-link-hover-color);
+  }
+
+  /* Theme toggle button */
+  #themeToggle {
+    background: var(--button-bg);
+    border: none;
+    color: var(--cream);
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    user-select: none;
+  }
+
+  #themeToggle:hover {
+    background-color: var(--button-hover-bg);
+  }
+
+  main {
+    margin: 120px auto 60px;
+    max-width: 900px;
+    padding: 0 1rem;
+    background: var(--section-bg);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    transition: background-color 0.4s ease;
+  }
+
+  section.page {
+    display: none;
+    animation: fadeInUp 0.7s ease forwards;
+  }
+
+  section.page.active {
+    display: block;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    transition: color 0.4s ease;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+    color: var(--muted-gold);
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+    color: var(--accent-red);
+  }
+
+  p, li {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: color 0.4s ease;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+  }
+
+  .intro-text {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-media {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .profile-photo {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    box-shadow: 0 0 15px var(--photo-shadow);
+    transition: box-shadow 0.4s ease;
+  }
+
+  .video-wrapper {
+    flex: 1 1 300px;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 0 15px var(--video-shadow);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+  }
+
+  .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .about-container p,
+  .achievement-list div,
+  .goal-text p,
+  .personal-section div ul li {
+    margin-bottom: 0.75rem;
+  }
+
+  .achievement-list {
+    background: var(--form-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--form-shadow);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .achievement-list div {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #aaa6;
+  }
+
+  .achievement-list div:last-child {
+    border-bottom: none;
+  }
+
+  .personal-section {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .personal-section div {
+    flex: 1 1 300px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--form-bg);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: var(--form-shadow);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  label {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0.3rem;
+    color: var(--text-color);
+    transition: color 0.4s ease;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    font-family: 'Roboto Slab', serif;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    resize: vertical;
+  }
+
+  button[type="submit"] {
+    align-self: flex-start;
+    background-color: var(--button-bg);
+    color: var(--cream);
+    border: none;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.75rem 1.5rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background-color: var(--button-hover-bg);
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    .hero-media {
+      flex-direction: column;
+      align-items: center;
+    }
+    .personal-section {
+      flex-direction: column;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar" aria-label="Primary navigation">
+    <div class="logo" aria-label="Portfolio Logo">Yash .D. Upadhyay</div>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a href="#about" role="menuitem" class="active">About Me</a></li>
+      <li role="none"><a href="#achievement" role="menuitem">Achievement</a></li>
+      <li role="none"><a href="#goal" role="menuitem">Goal</a></li>
+      <li role="none"><a href="#personal" role="menuitem">Personal</a></li>
+      <li role="none"><a href="#contact" role="menuitem">Contact Me</a></li>
+    </ul>
+    <button id="themeToggle" aria-label="Toggle Light/Dark Theme">Light Mode</button>
+  </nav>
+</header>
+
+<main>
+  <section id="about" class="page active" tabindex="0" aria-label="About Me Section">
+    <h1>About Me</h1>
+    <div class="hero-media">
+      <img
+        src="7148ce84-5b32-47da-a504-158b29f8d0d6.jpeg"
+        alt="Profile photo of Yash Deviprasad Upadhyay"
+        class="profile-photo"
+        loading="lazy"
+      />
+      <div class="video-wrapper" aria-label="Video Introduction">
+        <iframe
+          src="https://www.youtube.com/embed/Tm1u6-JnCmE"
+          title="Yash Deviprasad Upadhyay Video Introduction"
+          allowfullscreen
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-presentation"
+        ></iframe>
+      </div>
+    </div>
+    <p class="intro-text">
+      I am Yash Deviprasad Upadhyay, a passionate Electronics and Computer Science Engineering student at Mumbai University.
+      I am driven by curiosity and a desire to innovate through software development and technology.
+    </p>
+  </section>
+
+  <section id="achievement" class="page" tabindex="0" aria-label="Achievements Section">
+    <h2>Achievement</h2>
+    <div class="achievement-list">
+      <div>Worked on working and Construction of Land Rover using ESP32 Dev Board.</div>
+      <div>Second runner-up in inter college kabbadi competition.</div>
+      <div>Have successfully done two internship with IBM certificates.</div>
+      
+    </div>
+  </section>
+
+  <section id="goal" class="page" tabindex="0" aria-label="Goals Section">
+    <h2>Goal</h2>
+    <div class="goal-text">
+      <p>
+        My goal is to become a leading software engineer specialized in AI and machine learning,
+        creating impactful solutions that transform industries and improve lives.
+        And to build the CV resume so that MNC recognize me.
+      </p>
+    </div>
+  </section>
+
+  <section id="personal" class="page" tabindex="0" aria-label="Personal Details Section">
+    <h2>Personal</h2>
+    <div class="personal-section">
+      <div>
+        <h3>Address</h3>
+        <ul>
+          
+          <li>Palghar, Maharashtra, India</li>
+          <li>401404</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li>Email: y89996629@gmail.com</li>
+          <li>Phone: +91-8999662955</li>
+          
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="page" tabindex="0" aria-label="Contact Me Section">
+    <h2>Contact Me</h2>
+    <form id="contactForm" aria-label="Contact Form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required aria-required="true" placeholder="Your full name" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required aria-required="true" placeholder="your.email@example.com" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="Write your message here"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<script>
+  // Navigation links highlight & section display logic
+  const navLinks = document.querySelectorAll('ul.nav-links li a');
+  const pages = document.querySelectorAll('section.page');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+
+      // Hide all pages
+      pages.forEach(page => page.classList.remove('active'));
+      // Remove active from all nav links
+      navLinks.forEach(nav => nav.classList.remove('active'));
+
+      // Show the target page & mark nav link active
+      document.getElementById(targetId).classList.add('active');
+      link.classList.add('active');
+
+      // Focus the section for accessibility
+      document.getElementById(targetId).focus();
+    });
+  });
+
+  // Theme toggle logic
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+
+  // Check saved theme on load
+  if(localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-theme');
+    themeToggle.textContent = 'Dark Mode';
+  } else {
+    themeToggle.textContent = 'Light Mode';
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-theme');
+    if(body.classList.contains('light-theme')) {
+      themeToggle.textContent = 'Dark Mode';
+      localStorage.setItem('theme', 'light');
+    } else {
+      themeToggle.textContent = 'Light Mode';
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+
+  // Optional: Simple form submit handler to prevent actual submit and alert message
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Thank you for your message! I will get back to you soon.');
+    contactForm.reset();
+  });
+</script>
+
+</body>
+</html>
